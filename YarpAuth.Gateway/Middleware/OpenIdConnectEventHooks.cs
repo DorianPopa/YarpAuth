@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using System.Security.Claims;
 
 namespace YarpAuth.Gateway.Middleware;
 
@@ -36,6 +37,14 @@ public static class OpenIdConnectEventHooks
 
     private static Task OnRedirectToIdentityProviderForSignOut(RedirectContext context)
     {
+        //var identity = context.HttpContext.User.Identity as ClaimsIdentity;
+        //var sid = identity?.FindFirst("sid")?.Value;
+        //if (!string.IsNullOrEmpty(sid))
+        //{
+        //    context.ProtocolMessage.Parameters.Add("logout_hint", sid);
+        //}
+        context.ProtocolMessage.Parameters.Add("client_id", context.Options.ClientId);
+
         return Task.CompletedTask;
     }
 

@@ -43,7 +43,6 @@ public static class GatewaySetup
 
                 options.ResponseType = OpenIdConnectResponseType.Code;
                 options.ResponseMode = OpenIdConnectResponseMode.FormPost;
-                options.SaveTokens = false;
                 options.Scope.Add(OpenIdConnectScope.OpenIdProfile);
 
                 options.UsePkce = true;
