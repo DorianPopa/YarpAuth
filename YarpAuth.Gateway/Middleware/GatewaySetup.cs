@@ -72,12 +72,12 @@ public static class GatewaySetup
     public static WebApplication UseGateway(this WebApplication app)
     {
         app.UseRouting();
-        //app.UseSession();
+
         app.UseAuthentication();
         app.UseAuthorization();
+
         app.UseCookiePolicy();
 
-        //app.UseXsrfCookie();
         app.UseGatewayEndpoints();
         app.UseYarp();
 
